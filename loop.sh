@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "Test"
 LOGFILE=/tmp/sitespeed.io.log
 exec > $LOGFILE 2>&1
 
