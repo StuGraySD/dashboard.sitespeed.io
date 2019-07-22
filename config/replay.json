@@ -5,20 +5,20 @@
       "engine": "external",
       "profile": "cable"
     },
-    "visualElements": true,
+    "visualElements": false,
     "iterations": 1,
     "browser": "chrome",
     "video": true,
-    "visualMetric": true
+    "visualMetric": false
   },
   "chrome": {
-    "collectConsoleLog": true,
+    "collectConsoleLog": false,
     "includeResponseBodies": "html"
   },
-  "cpu": true,
-  "gzipHAR": true,
+  "cpu": false,
+  "gzipHAR": false,
   "html": {
-    "fetchHARFiles": true
+    "fetchHARFiles": false
   },
   "screenshot": {
     "type": "jpg"
