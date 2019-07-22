@@ -22,7 +22,7 @@ for url in $SERVER/desktop/urls/*.txt ; do
       # Note: If you use dots in your name you need to replace them before sending to Graphite
       # GRAPHITE_NAMESPACE=${GRAPHITE_NAMESPACE//[-.]/_}
       NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
-      echo $CONFIG
+      echo pwd
       docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json -b $browser $url
       control
     done
