@@ -19,7 +19,7 @@ SERVER=$1
 # You cannot start multiple instances!
 if [ -f "$CONTROL_FILE" ]
 then
-  echo "$CONTROL_FILE exist, do you have running tests?"
+  echo "$CONTROL_FILE exist, do you have running tests STU?"
   exit 1;
 else
   touch $CONTROL_FILE
