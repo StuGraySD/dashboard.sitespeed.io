@@ -5,14 +5,14 @@
       "engine": "throttle",
       "profile": "cable"
     },
-    "visualElements": true,
+    "visualElements": false,
     "iterations": 1,
     "browser": "chrome",
-    "video": true,
-    "visualMetric": true
+    "video": false,
+    "visualMetric": false
   },
   "chrome": {
-    "collectConsoleLog": true,
+    "collectConsoleLog": false,
     "includeResponseBodies": "html"
   },
   "cpu": true,
