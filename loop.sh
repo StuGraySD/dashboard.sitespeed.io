@@ -45,7 +45,6 @@ function control() {
 while true
 do
     ## For each iteration, we pull the latest code from git and run
-    echo "Stu"
     git pull
     source run.sh $SERVER
     result=$?
