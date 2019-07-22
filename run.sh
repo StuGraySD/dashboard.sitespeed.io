@@ -15,6 +15,7 @@ BROWSERS=(chrome firefox)
 # removing things you don't need!
 
 for url in $SERVER/desktop/urls/*.txt ; do
+  echo "Test" 
   [ -e "$url" ] || continue
   for browser in "${BROWSERS[@]}"
     do
