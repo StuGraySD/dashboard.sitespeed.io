@@ -1,5 +1,5 @@
 {
-  "extends": "/home/stu/dashboard.sitespeed.io/config/secrets.json",
+  "extends": "../secrets.json",
   "browsertime": {
     "connectivity": {
       "engine": "throttle",
