@@ -5,20 +5,20 @@
       "engine": "throttle",
       "profile": "cable"
     },
-    "visualElements": true,
+    "visualElements": false,
     "iterations": 1,
     "browser": "chrome",
-    "video": true,
-    "visualMetric": true,
+    "video": false,
+    "visualMetric": false,
     "chrome": {
-      "collectConsoleLog": true,
-      "enableTraceScreenshots": true
+      "collectConsoleLog": false,
+      "enableTraceScreenshots": false
     }
   },
-  "cpu": true,
-  "gzipHAR": true,
+  "cpu": false,
+  "gzipHAR": false,
   "html": {
-    "fetchHARFiles": true
+    "fetchHARFiles": false
   },
   "screenshot": {
     "type": "jpg"
