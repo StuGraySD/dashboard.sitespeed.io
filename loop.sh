@@ -16,7 +16,6 @@ then
 fi
 
 SERVER=$1
-echo SERVER
 
 # You cannot start multiple instances!
 if [ -f "$CONTROL_FILE" ]
@@ -46,6 +45,7 @@ sudo modprobe ifb numifbs=1
 while true
 do
     ## For each iteration, we pull the latest code from git and run
+    echo "Stu"
     git pull
     source run.sh $SERVER
     result=$?
