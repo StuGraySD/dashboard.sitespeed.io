@@ -22,7 +22,8 @@ for url in $SERVER/desktop/urls/*.txt ; do
       # GRAPHITE_NAMESPACE=${GRAPHITE_NAMESPACE//[-.]/_}
 #       NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
       echo $PWD
-      docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json -b $browser $url
+#       docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json -b $browser $url
+  docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/desktop.json -b $browser $url
       control
     done
 done
@@ -30,21 +31,24 @@ done
 for script in $SERVER/desktop/scripts/*.js ; do
     [ -e "$script" ] || continue
 #     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
-    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json --multi --spa $script
+#     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json --multi --spa $script
+docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/desktop.json --multi --spa $script
     control
 done
 
 for url in $SERVER/emulatedMobile/urls/*.txt ; do
     [ -e "$url" ] || continue
 #     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
-    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/emulatedMobile.json $url
+#     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/emulatedMobile.json $url
+docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/emulatedMobile.json $url
     control
 done
 
 for script in $SERVER/emulatedMobile/scripts/*.js ; do
     [ -e "$script" ] || continue
 #     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
-    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/emulatedMobile.json --multi --spa $script
+#     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/emulatedMobile.json --multi --spa $script
+docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/emulatedMobile.json --multi --spa $script
     control
 done
 
@@ -52,7 +56,8 @@ done
 for url in $SERVER/replay/urls/*.txt ; do
     [ -e "$url" ] || continue
 #     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
-    docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $NAMESPACE $CONFIG/replay.json $url
+#     docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $NAMESPACE $CONFIG/replay.json $url
+docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $CONFIG/replay.json $url
     control
 done
 
@@ -60,7 +65,8 @@ done
 for url in $SERVER/webpagetest/desktop/urls/*.txt ; do
     [ -e "$url" ] || continue
 #     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
-    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json $url
+#     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json $url
+docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/webpagetest.json $url
     control
 done
 
@@ -68,7 +74,8 @@ done
 for script in $SERVER/webpagetest/desktop/scripts/* ; do
     [ -e "$script" ] || continue
 #     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
-    docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json --plugins.remove browsertime --webpagetest.file $script https://www.example.org/
+#     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json --plugins.remove browsertime --webpagetest.file $script https://www.example.org/
+    docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/webpagetest.json --plugins.remove browsertime --webpagetest.file $script https://www.example.org/
     control
 done
 
