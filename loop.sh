@@ -38,7 +38,7 @@ function control() {
   fi
 }
 
-# To get throttle to work (https://github.com/sitespeedio/throttle)!
+# # To get throttle to work (https://github.com/sitespeedio/throttle)!
 # sudo modprobe ifb numifbs=1
 
 while true
