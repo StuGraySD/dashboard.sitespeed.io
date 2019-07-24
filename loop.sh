@@ -11,6 +11,7 @@ CONTROL_FILE="./sitespeed.run"
 # The first parameter is the server name, so we can find the right tests to run
 if [ -z "$1" ] 
 then
+    echo "test"
     echo "Missing server input! You need to run with a parameter that gives the path to the configuration "
     exit 1
 fi
