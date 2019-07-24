@@ -28,56 +28,56 @@ for url in $SERVER/desktop/urls/*.txt ; do
     done
 done
 
-for script in $SERVER/desktop/scripts/*.js ; do
-    [ -e "$script" ] || continue
-#     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
-#     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json --multi --spa $script
-docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/desktop.json --multi --spa $script
-    control
-done
+# for script in $SERVER/desktop/scripts/*.js ; do
+#     [ -e "$script" ] || continue
+# #     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
+# #     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json --multi --spa $script
+# docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/desktop.json --multi --spa $script
+#     control
+# done
 
-for url in $SERVER/emulatedMobile/urls/*.txt ; do
-    [ -e "$url" ] || continue
-#     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
-#     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/emulatedMobile.json $url
-docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/emulatedMobile.json $url
-    control
-done
+# for url in $SERVER/emulatedMobile/urls/*.txt ; do
+#     [ -e "$url" ] || continue
+# #     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
+# #     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/emulatedMobile.json $url
+# docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/emulatedMobile.json $url
+#     control
+# done
 
-for script in $SERVER/emulatedMobile/scripts/*.js ; do
-    [ -e "$script" ] || continue
-#     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
-#     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/emulatedMobile.json --multi --spa $script
-docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/emulatedMobile.json --multi --spa $script
-    control
-done
+# for script in $SERVER/emulatedMobile/scripts/*.js ; do
+#     [ -e "$script" ] || continue
+# #     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
+# #     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/emulatedMobile.json --multi --spa $script
+# docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/emulatedMobile.json --multi --spa $script
+#     control
+# done
 
-# We run WebPageReplay just to verify that it works
-for url in $SERVER/replay/urls/*.txt ; do
-    [ -e "$url" ] || continue
-#     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
-#     docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $NAMESPACE $CONFIG/replay.json $url
-docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $CONFIG/replay.json $url
-    control
-done
+# # We run WebPageReplay just to verify that it works
+# for url in $SERVER/replay/urls/*.txt ; do
+#     [ -e "$url" ] || continue
+# #     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
+# #     docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $NAMESPACE $CONFIG/replay.json $url
+# docker run $DOCKER_SETUP -e REPLAY=true -e LATENCY=100 $DOCKER_CONTAINER $CONFIG/replay.json $url
+#     control
+# done
 
-# We run WebPageTest runs to verify the WebPageTest functionality and dashboards
-for url in $SERVER/webpagetest/desktop/urls/*.txt ; do
-    [ -e "$url" ] || continue
-#     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
-#     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json $url
-docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/webpagetest.json $url
-    control
-done
+# # We run WebPageTest runs to verify the WebPageTest functionality and dashboards
+# for url in $SERVER/webpagetest/desktop/urls/*.txt ; do
+#     [ -e "$url" ] || continue
+# #     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
+# #     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json $url
+# docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/webpagetest.json $url
+#     control
+# done
 
-# You can also test using WebPageTest scripts
-for script in $SERVER/webpagetest/desktop/scripts/* ; do
-    [ -e "$script" ] || continue
-#     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
-#     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json --plugins.remove browsertime --webpagetest.file $script https://www.example.org/
-    docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/webpagetest.json --plugins.remove browsertime --webpagetest.file $script https://www.example.org/
-    control
-done
+# # You can also test using WebPageTest scripts
+# for script in $SERVER/webpagetest/desktop/scripts/* ; do
+#     [ -e "$script" ] || continue
+# #     NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${script%%.*})"
+# #     docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/webpagetest.json --plugins.remove browsertime --webpagetest.file $script https://www.example.org/
+#     docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/webpagetest.json --plugins.remove browsertime --webpagetest.file $script https://www.example.org/
+#     control
+# done
 
 # Remove the current container so we fetch the latest autobuild the next time
 # If you run a stable version (as YOU should), you don't need to remove the container
