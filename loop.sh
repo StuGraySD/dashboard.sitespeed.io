@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "Loop started"
 LOGFILE=/tmp/sitespeed.io.log
 exec > $LOGFILE 2>&1
 
