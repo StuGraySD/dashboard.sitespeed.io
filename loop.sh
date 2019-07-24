@@ -1,5 +1,5 @@
 #!/bin/bash
-LOGFILE=/tmp/sitespeed.io.log
+LOGFILE=./tmp/sitespeed.io.log
 exec > $LOGFILE 2>&1
 
 # In your curent dir we will place a file called sitespeed.run that shows that the tests are running
