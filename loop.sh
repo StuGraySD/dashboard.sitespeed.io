@@ -28,6 +28,7 @@ fi
 
 # Help us end on demand
 function control() {
+  echo "In Loop"
   if [ -f "$CONTROL_FILE" ]
   then
     echo "$CONTROL_FILE found. Make another run ..."
