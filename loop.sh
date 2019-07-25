@@ -53,7 +53,7 @@ do
         echo 'Stop the loop $result' 
         exit 0;
     else 
-        sleep 2m
+        sleep 20m
         echo 'Sleeping'
     fi
 done
