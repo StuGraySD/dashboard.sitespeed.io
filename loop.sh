@@ -52,5 +52,6 @@ do
     if [ $result -ne 0 ]; then
         echo 'Stop the loop $result' 
         exit 0;
+    sleep 20m
     fi
 done
