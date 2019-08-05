@@ -5,8 +5,9 @@
 # DOCKER_CONTAINER=sitespeedio/sitespeed.io:9.2.1
 # DOCKER_CONTAINER=sitespeedio/sitespeed.io-autobuild:latest
 
+n
 DOCKER_CONTAINER=sitespeedio/sitespeed.io:9.2.1
-DOCKER_SETUP="--cap-add=NET_ADMIN  --shm-size=2g -v /config:/config -v "$(pwd)":/sitespeed.io -v /etc/localtime:/etc/localtime:ro -e MAX_OLD_SPACE_SIZE=3072 "
+DOCKER_SETUP="--cap-add=NET_ADMIN  --shm-size=2g -v /config:/config -v "$(pwd)":/sitespeed.io -v /etc/localtime:/etc/localtime:ro -e MAX_OLD_SPACE_SIZE=3072 --link graphite:graphite "
 CONFIG="--config /sitespeed.io/config"
 BROWSERS=(chrome)
 
