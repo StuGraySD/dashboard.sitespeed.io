@@ -22,8 +22,5 @@
   },
   "screenshot": {
     "type": "jpg"
-  },
-  "plugins": {
-    "add": "lighthouse"
   }
 }
