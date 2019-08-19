@@ -7,7 +7,7 @@
 
 n
 DOCKER_CONTAINER=sitespeedio/sitespeed.io:9.2.1
-DOCKER_SETUP="--cap-add=NET_ADMIN  --shm-size=2g -v /config:/config -v "$(pwd)":/sitespeed.io:9.8.1-plus1 -v /etc/localtime:/etc/localtime:ro -e MAX_OLD_SPACE_SIZE=3072 --link graphite:graphite --plugins.list"
+DOCKER_SETUP="--cap-add=NET_ADMIN  --shm-size=2g -v /config:/config -v "$(pwd)":/sitespeed.io -v /etc/localtime:/etc/localtime:ro -e MAX_OLD_SPACE_SIZE=3072 --link graphite:graphite"
 CONFIG="--config /sitespeed.io/config"
 BROWSERS=(chrome)
 
@@ -22,7 +22,7 @@ for url in $SERVER/desktop/urls/*.txt ; do
       # Note: If you use dots in your name you need to replace them before sending to Graphite
       # GRAPHITE_NAMESPACE=${GRAPHITE_NAMESPACE//[-.]/_}
       NAMESPACE="--graphite.namespace sitespeed_io.$(basename ${url%%.*})"
-      docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json -b $browser $url
+      docker run $DOCKER_SETUP $DOCKER_CONTAINER $NAMESPACE $CONFIG/desktop.json -b $browser $url --plugins.list
       # docker run $DOCKER_SETUP $DOCKER_CONTAINER $CONFIG/desktop.json -b $browser $url
       control
     done
