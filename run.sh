@@ -7,7 +7,7 @@
 
 n
 DOCKER_CONTAINER=sitespeedio/sitespeed.io:9.2.1
-DOCKER_SETUP="--cap-add=NET_ADMIN  --shm-size=2g -v /config:/config -v "$(pwd)":/sitespeed.io:9.8.1-plus1 -v /etc/localtime:/etc/localtime:ro -e MAX_OLD_SPACE_SIZE=3072 --link graphite:graphite --plugins.add /lighthouse"
+DOCKER_SETUP="--cap-add=NET_ADMIN  --shm-size=2g -v /config:/config -v "$(pwd)":/sitespeed.io:9.8.1-plus1 -v /etc/localtime:/etc/localtime:ro -e MAX_OLD_SPACE_SIZE=3072 --link graphite:graphite --plugins.add --plugins.add ./node_modules/@sitespeed.io/plugin-lighthouse/"
 CONFIG="--config /sitespeed.io/config"
 BROWSERS=(chrome)
 
