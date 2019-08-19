@@ -7,7 +7,7 @@
 
 n
 DOCKER_CONTAINER=sitespeedio/sitespeed.io:9.2.1
-DOCKER_SETUP="--cap-add=NET_ADMIN  --shm-size=2g -v /config:/config -v "$(pwd)":/sitespeed.io -v /etc/localtime:/etc/localtime:ro -e MAX_OLD_SPACE_SIZE=3072 --link graphite:graphite"
+DOCKER_SETUP="--cap-add=NET_ADMIN  --shm-size=2g -v /config:/config -v "$(pwd)":/sitespeed.io -v /etc/localtime:/etc/localtime:ro -e MAX_OLD_SPACE_SIZE=3072 --link graphite:graphite --slack.hookUrl https://hooks.slack.com/services/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"
 CONFIG="--config /sitespeed.io/config"
 BROWSERS=(chrome)
 
