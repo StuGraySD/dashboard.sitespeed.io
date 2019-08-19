@@ -83,5 +83,5 @@ done
 # If you run a stable version (as YOU should), you don't need to remove the container
 docker system prune --all --volumes -f
 echo "Sleeping now"
-sleep 5m
+sleep 20m
 echo "Waking up"
